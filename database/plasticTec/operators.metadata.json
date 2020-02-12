@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"plasticTec.operators"}],"uuid":"580e466655a84f14bad2e1f9a7b63aae"}

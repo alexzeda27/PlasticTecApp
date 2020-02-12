@@ -18,8 +18,8 @@ function createSquare(req, res)
         square.numberSquare = params.numberSquare;
         square.department = params.department;
         Square.find({ $and: [
-            {numberSquare = square.numberSquare},
-            {department : square.department}
+            {numberSquare: square.numberSquare},
+            {department: square.department}
         ]}).exec((err, squares) => {
             if(err) return Methods.responseErrorServer(res);
             if(squares && squares.length >= 1) return Methods.responseNotAccepted(res, "Este bloque ya existe. Intente con otro.");
@@ -59,7 +59,7 @@ function getSquare(req, res)
 //Función Obtener Bloques
 function getSquares(req, res)
 {
-    Square.find().populate({ path: "department" }).exec((err, squares) => {
+    Square.find().sort('numberSquare').populate({ path: "department" }).exec((err, squares) => {
         if(err) return Methods.responseErrorServer(res);
         if(!squares) return Methods.responseNotFound(res, "No se han encontrado bloques.");
         else
@@ -89,7 +89,7 @@ function updateSquare(req, res)
                     if(!squareUpdated) return Methods.responseNotAccepted(res, "Ocurrio un error al actualizar el bloque. Intentelo de nuevo.");
                     else
                     {
-                        return Methods.responseCreated(res, "Bloque actualizado con exito");
+                        return Methods.responseCreated(res, "Bloque actualizado correctamente.");
                     }                    
                 });
             }
@@ -110,7 +110,7 @@ function removeSquare(req, res)
         if(!squareRemoved) return Methods.responseNotAccepted(res, "Ocurrio un error al eliminar el bloque. Intentelo de nuevo.");
         else
         {
-            return Methods.responseOk(res, "Bloque eliminado correctamente");
+            return Methods.responseOk(res, "Bloque eliminado correctamente.");
         }
     });
 }

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"plasticTec.weeks"}],"uuid":"6734bb091b0f4634b3a973f5437b6f10"}
