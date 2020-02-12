@@ -14,6 +14,7 @@ var departmentRoutes = require('./routes/department');
 var positionRoutes = require('./routes/position');
 var employeeRoutes = require('./routes/employee');
 var customerRoutes = require('./routes/customer');
+var squareRoutes = require('./routes/square');
 
 //Parseamos los datos por la URI
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +28,7 @@ app.use('/api', departmentRoutes);
 app.use('/api', positionRoutes);
 app.use('/api', employeeRoutes);
 app.use('/api', customerRoutes);
+app.use('/api', squareRoutes);
 
 //Exportar
 module.exports = app;
