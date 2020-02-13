@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"plasticTec.machines"}],"uuid":"89f7606455c1475a83ed0251554feef8"}
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"plasticTec.machines"}],"uuid":"9d5d395548634efbb4f921dcdf3c39ff"}

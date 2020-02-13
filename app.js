@@ -11,6 +11,7 @@ var app = express();
 var monthRoutes = require('./routes/month');
 var weekRoutes = require('./routes/week');
 var dayRoutes = require('./routes/day');
+var turnRoutes = require('./routes/turn');
 var typeWorkerRoutes = require('./routes/typeWorker');
 var costCenterRoutes = require('./routes/costCenter');
 var departmentRoutes = require('./routes/department');
@@ -21,7 +22,9 @@ var squareRoutes = require('./routes/square');
 var machineRoutes = require('./routes/machine');
 var productRoutes = require('./routes/product');
 var operatorRoutes = require('./routes/operator');
+var supervisorRoutes = require('./routes/supervisor');
 var mobilityDateRoutes = require('./routes/mobilityDate');
+var mobilityRoutes = require('./routes/mobility');
 
 //Parseamos los datos por la URI
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,6 +35,7 @@ app.use(bodyParser.json());
 app.use('/api', monthRoutes);
 app.use('/api', weekRoutes);
 app.use('/api', dayRoutes);
+app.use('/api', turnRoutes);
 app.use('/api', typeWorkerRoutes);
 app.use('/api', costCenterRoutes);
 app.use('/api', departmentRoutes);
@@ -42,7 +46,9 @@ app.use('/api', squareRoutes);
 app.use('/api', machineRoutes);
 app.use('/api', productRoutes);
 app.use('/api', operatorRoutes);
+app.use('/api', supervisorRoutes);
 app.use('/api', mobilityDateRoutes);
+app.use('/api', mobilityRoutes);
 
 //Exportar
 module.exports = app;

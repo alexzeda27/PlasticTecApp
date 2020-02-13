@@ -12,9 +12,9 @@ var Methods = require('../status/methods');
 function getOperator(req, res)
 {
     var operatorId = req.params.id;
-    Operator.findById(operatorId).populate({ path: "employee" }).exec((err, operators) => {
+    Operator.findById(operatorId).populate({ path: "employee", populate: [{ path: "position", populate: [{ path: "typeWorker" }, { path: "costCenter" }] }, { path: "department" }] }).exec((err, operators) => {
         if(err) return Methods.responseErrorServer(res);
-        if(!operators) return Methods.responseNotFound(res, "No se ha encontrado el operador. Intentelo de nuevo.");
+        if(!operators) return Methods.responseNotFound(res, "No se ha encontrado al operador. Intentelo de nuevo.");
         else
         {
             return Methods.responseOk(res, operators);
@@ -25,7 +25,7 @@ function getOperator(req, res)
 //Función Obtener Operadores
 function getOperators(req, res)
 {
-    Operator.find().populate({ path: "employee" }).exec((err, operators) => {
+    Operator.find().populate({ path: "employee", populate: [{ path: "position", populate: [{ path: "typeWorker" }, { path: "costCenter" }] }, { path: "department" }] }).exec((err, operators) => {
         if(err) return Methods.responseErrorServer(res);
         if(!operators) return Methods.responseNotAccepted(res, "No hay operadores.");
         else
